@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Chelsea ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,#ffd6e0,#ffe8f1,#fff7fa);
+  overflow:hidden;
+}
+
+body::before{
+  content:"✨ ❤️ ✨ ❤️ ✨";
+  position:absolute;
+  top:40px;
+  font-size:28px;
+  opacity:.3;
+  letter-spacing:25px;
+}
+
+.container{
+  text-align:center;
+}
+
+.envelope{
+  position:relative;
+  width:340px;
+  height:230px;
+  cursor:pointer;
+  transition:.5s;
+}
+
+.envelope:hover{
+  transform:translateY(-8px);
+}
+
+/* belakang amplop */
+.back{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:#f8a9bd;
+  border-radius:15px;
+  box-shadow:0 20px 40px rgba(0,0,0,.15);
+  z-index:2;
+}
+
+/* tutup amplop */
+.front{
+  position:absolute;
+  width:0;
+  height:0;
+  border-left:170px solid transparent;
+  border-right:170px solid transparent;
+  border-top:125px solid #ffc1d6;
+  top:0;
+  transform-origin:top;
+  transition:1s;
+  z-index:6;
+}
+
+/* bagian bawah */
+.bottom{
+  position:absolute;
+  width:0;
+  height:0;
+  border-left:170px solid #f7b1c5;
+  border-right:170px solid #f7b1c5;
+  border-top:110px solid transparent;
+  border-bottom:120px solid #f7b1c5;
+  border-radius:0 0 15px 15px;
+  z-index:4;
+}
+
+/* segel foto */
+.seal{
+  position:absolute;
+  width:82px;
+  height:82px;
+  border-radius:50%;
+  overflow:hidden;
+  border:4px solid white;
+  box-shadow:0 8px 20px rgba(0,0,0,.25);
+  left:50%;
+  top:58%;
+  transform:translate(-50%,-50%);
+  z-index:7;
+  transition:.7s;
+}
+
+.seal img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* surat */
+.letter{
+  position:absolute;
+  width:90%;
+  height:92%;
+  left:5%;
+  top:5%;
+  background:white;
+  border-radius:20px;
+  padding:25px;
+  box-shadow:0 10px 25px rgba(0,0,0,.12);
+  overflow:auto;
+  transition:1s;
+  opacity:0;
+  z-index:0;
+}
+
+.letter h1{
+  font-family:'Dancing Script',cursive;
+  color:#e75480;
+  font-size:42px;
+  margin-bottom:15px;
+}
+
+.letter p{
+  color:#555;
+  line-height:1.8;
+  font-size:14px;
+}
+
+.signature{
+  margin-top:20px;
+  color:#999;
+  font-style:italic;
+}
+
+/* animasi buka */
+.envelope.open .front{
+  transform:rotateX(180deg);
+}
+
+.envelope.open .letter{
+  transform:translateY(-180px);
+  opacity:1;
+  z-index:10;
+}
+
+.envelope.open .seal{
+  transform:translate(-50%,-50%) scale(0);
+  opacity:0;
+}
+
+.tap{
+  margin-top:40px;
+  color:#d46a8c;
+  animation:blink 2s infinite;
+}
+
+@keyframes blink{
+  50%{
+    opacity:.4;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="envelope" onclick="openLetter()">
+
+    <div class="back"></div>
+
+    <div class="letter">
+      <h1>Dear Chelsea ❤️</h1>
+
+      <p>
+        I am so proud of you. At a time when many people are beginning
+        to forget God, you still remember Him and keep Him close to your heart.
+        <br><br>
+
+        I’m proud of how strong you’ve been through every challenge and every storm that came your way.
+        <br><br>
+
+        But now, I’m here for you, Chell.
+        You can open up to me, lean on me, and share your burdens.
+        Please don't carry everything alone and keep it all inside.
+        You don't have to be strong all the time. ❤️
+      </p>
+
+      <div class="signature">
+        With care,<br>
+        Michael
+      </div>
+    </div>
+
+    <!-- Ganti dengan foto Chelsea -->
+    <div class="seal">
+      <img src="" alt="Chelsea">
+    </div>
+
+    <div class="front"></div>
+    <div class="bottom"></div>
+
+  </div>
+
+  <p class="tap">✉️ Click the envelope to open it</p>
+
+</div>
+
+<script>
+function openLetter(){
+  document.querySelector(".envelope").classList.toggle("open");
+}
+</script>
+
+</body>
+</html>
